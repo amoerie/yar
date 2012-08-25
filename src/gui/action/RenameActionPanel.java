@@ -35,8 +35,9 @@ public abstract class RenameActionPanel<E extends RenameAction> extends JPanel {
     protected abstract void addComponents();
     protected abstract void layoutComponents();
     protected abstract void addListeners();
+    protected abstract void initializeRenameAction();
+    protected abstract void resetInputFields();
 
-    public abstract void initializeRenameAction();
 	public abstract String getTitle();
 
     protected void changed() {
@@ -45,5 +46,19 @@ public abstract class RenameActionPanel<E extends RenameAction> extends JPanel {
 
     public RenameAction getRenameAction() {
         return renameAction;
+    }
+
+    /**
+     * Re-initializes the rename action
+     * and sets the appropriate input fields back to their defaults.
+     */
+    public void reset() {
+        initializeRenameAction();
+        resetInputFields();
+    }
+
+    protected void setRadioButtonSelected(boolean value, JRadioButton buttonIfTrue, JRadioButton buttonIfFalse) {
+        buttonIfTrue.setSelected(value);
+        buttonIfFalse.setSelected(!value);
     }
 }

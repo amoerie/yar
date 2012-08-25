@@ -187,4 +187,13 @@ public class MoveActionPanel extends RenameActionPanel<MoveAction> {
     public String getTitle() {
         return "Move";
     }
+
+    @Override
+    public void resetInputFields() {
+        countSpinner.setValue(renameAction.getCount());
+        fromPositionSpinner.setValue(renameAction.getFromPosition());
+        toPositionSpinner.setValue(renameAction.getToPosition());
+        setRadioButtonSelected(renameAction.isFromFromBeginning(), fromFromBeginningRadioButton, fromFromEndRadioButton);
+        setRadioButtonSelected(renameAction.isToFromBeginning(), toFromBeginningRadioButton, toFromEndRadioButton);
+    }
 }

@@ -21,17 +21,21 @@ public class ActiveFile {
     private String extension;
 	
 	public ActiveFile(File file) {
-		this.file = file;
+        loadFile(file);
+	}
+
+    private void loadFile(File file) {
+        this.file = file;
         String fileName = file.getName();
         if(fileName.contains(".")) {
-		    oldFileName = fileName.substring(0, fileName.lastIndexOf('.'));
+            oldFileName = fileName.substring(0, fileName.lastIndexOf('.'));
             extension = fileName.substring(fileName.lastIndexOf('.'), fileName.length());
         } else {
             oldFileName = fileName;
             extension = "";
         }
-		newFileName = new String(oldFileName);
-	}
+        newFileName = new String(oldFileName);
+    }
 	
 	public void tryRename(List<RenameAction> renameActions) throws ActiveFileException {
 		newFileName = new String(oldFileName);
@@ -51,18 +55,18 @@ public class ActiveFile {
 		Path newPath = getNewPath(currentPath, newFileName, extension);
         try {
 			Files.move(currentPath, newPath);
-			oldFileName = newFileName;
+			loadFile(newPath.toFile());
 		} catch (IOException e) {
 			throw new ActiveFileException("Failed to rename " + currentPath.toString() + " to " + newPath.toString(), e);
 		}
 	}
 	
 	public String getNewFileName() {
-		return newFileName;
+		return newFileName + extension;
 	}
 	
 	public String getOldFileName() {
-		return oldFileName;
+		return oldFileName + extension;
 	}
 
     /**

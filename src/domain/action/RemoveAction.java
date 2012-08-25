@@ -49,6 +49,18 @@ public class RemoveAction extends RenameAction {
         this.fromBeginning = fromBeginning;
     }
 
+    public int getStart() {
+        return start;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public boolean isFromBeginning() {
+        return fromBeginning;
+    }
+
     @Override
 	public String toString() {
 		return "Remove " + count + " characters starting at " + start + " characters from the " + (fromBeginning? "start":"end");

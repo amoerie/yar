@@ -92,7 +92,13 @@ public class EditorPanel extends JPanel implements RenameActionListener {
             public void actionPerformed(ActionEvent e) {
                 RenameActionPanel selectedActionPanel = (RenameActionPanel) renameActionsTabbedPane.getSelectedComponent();
                 model.addRenameAction(selectedActionPanel.getRenameAction());
-                selectedActionPanel.initializeRenameAction();
+                selectedActionPanel.reset();
+                model.setPendingRenameAction(selectedActionPanel.getRenameAction());
+                try {
+                    model.tryRenameActiveFiles();
+                } catch (ActiveFileException e1) {
+                    exceptionListener.notifyExceptionOccurred(e1);
+                }
             }
         });
         removeButton.addActionListener(new ActionListener() {
@@ -100,6 +106,11 @@ public class EditorPanel extends JPanel implements RenameActionListener {
             public void actionPerformed(ActionEvent e) {
                 RenameAction action = (RenameAction) plannedRenameActions.getSelectedValue();
                 model.removeRenameAction(action);
+                try {
+                    model.tryRenameActiveFiles();
+                } catch (ActiveFileException e1) {
+                    exceptionListener.notifyExceptionOccurred(e1);
+                }
             }
         });
 

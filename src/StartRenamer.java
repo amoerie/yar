@@ -16,7 +16,7 @@ public class StartRenamer {
 			@Override
 			public void run() {
 				JFrame renamerFrame = new RenamerFrame();
-				renamerFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				renamerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				renamerFrame.setSize(new Dimension(800,600));
 				renamerFrame.setLocationRelativeTo(null);
 				renamerFrame.setVisible(true);

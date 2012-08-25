@@ -84,6 +84,12 @@ public class ReplaceActionPanel extends RenameActionPanel<ReplaceAction>{
     }
 
     @Override
+    protected void resetInputFields() {
+        targetTextField.setText(renameAction.getTarget());
+        replacementTextField.setText(renameAction.getReplacement());
+    }
+
+    @Override
     public String getTitle() {
         return "Replace";
     }

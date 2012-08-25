@@ -50,10 +50,7 @@ public class MoveAction extends RenameAction{
             startIndex = fileName.length() - fromPosition - 1;
         endIndex = startIndex + count;
         if(endIndex > fileName.length())
-            throw new RenameException(
-                    String.format("End of string reached. Count is higher than remaining characters. " +
-                            "Tried to move from position %d to %d but filename is only %d characters",
-                            startIndex, endIndex, fileName.length()));
+            endIndex = fileName.length();
         String movingPart = fileName.substring(startIndex, endIndex);
         String fileNameWithoutMovingPart = fileName.substring(0, startIndex) +
                 fileName.substring(endIndex, fileName.length());
@@ -71,7 +68,9 @@ public class MoveAction extends RenameAction{
         Step 3: Insert the moving part at the new location
          */
         if(targetIndex < 0)
-            throw new RenameException("Back at the beginning of string. Can't move " + movingPart + " to index " + targetIndex);
+            targetIndex = 0;
+        if(targetIndex > fileNameWithoutMovingPart.length())
+            targetIndex = fileNameWithoutMovingPart.length();
         targetName = fileNameWithoutMovingPart.substring(0, targetIndex)
                 + movingPart
                 + fileNameWithoutMovingPart.substring(targetIndex, fileNameWithoutMovingPart.length());
@@ -104,4 +103,26 @@ public class MoveAction extends RenameAction{
     public void setToPosition(int toPosition) {
         this.toPosition = toPosition;
     }
+
+    public boolean isFromFromBeginning() {
+        return fromFromBeginning;
+    }
+
+    public int getFromPosition() {
+        return fromPosition;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public boolean isToFromBeginning() {
+        return toFromBeginning;
+    }
+
+    public int getToPosition() {
+        return toPosition;
+    }
 }
+
+

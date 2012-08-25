@@ -17,12 +17,13 @@ public class InsertAction extends RenameAction {
 	@Override
 	public String execute(String fileName) throws RenameException {
         int length = fileName.length();
-		if(insertPosition > length)
-			throw new RenameException("Invalid insert position " + insertPosition + ", filename length is only " + length + " characters long.");
+        int safeInsertPosition = insertPosition;
+		if(safeInsertPosition > length)
+            safeInsertPosition = length;
         if(fromBeginning)
-		    return fileName.substring(0, insertPosition) + text + fileName.substring(insertPosition, length);
+		    return fileName.substring(0, safeInsertPosition) + text + fileName.substring(safeInsertPosition, length);
         else
-            return fileName.substring(0, length - insertPosition) + text + fileName.substring(length - insertPosition, length);
+            return fileName.substring(0, length - safeInsertPosition) + text + fileName.substring(length - safeInsertPosition, length);
 	}
 
 	@Override
@@ -40,5 +41,17 @@ public class InsertAction extends RenameAction {
 
     public void setFromBeginning(boolean fromBeginning) {
         this.fromBeginning = fromBeginning;
+    }
+
+    public int getInsertPosition() {
+        return insertPosition;
+    }
+
+    public boolean isFromBeginning() {
+        return fromBeginning;
+    }
+
+    public String getText() {
+        return text;
     }
 }

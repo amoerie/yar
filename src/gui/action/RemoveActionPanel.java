@@ -122,6 +122,13 @@ public class RemoveActionPanel extends RenameActionPanel<RemoveAction> {
     }
 
     @Override
+    protected void resetInputFields() {
+        countSpinner.setValue(renameAction.getCount());
+        startPositionSpinner.setValue(renameAction.getStart());
+        setRadioButtonSelected(renameAction.isFromBeginning(), fromBeginningRadioButton, fromEndRadioButton);
+    }
+
+    @Override
     public String getTitle() {
         return "Remove";  //To change body of implemented methods use File | Settings | File Templates.
     }

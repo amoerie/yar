@@ -31,4 +31,12 @@ public class ReplaceAction extends RenameAction {
     public void setReplacement(String replacement) {
         this.replacement = replacement;
     }
+
+    public String getTarget() {
+        return target;
+    }
+
+    public String getReplacement() {
+        return replacement;
+    }
 }

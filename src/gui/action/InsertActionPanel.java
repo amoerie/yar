@@ -1,6 +1,5 @@
 package gui.action;
 
-import domain.RenameModel;
 import domain.action.InsertAction;
 import gui.listener.RenameActionListener;
 import util.GBC;
@@ -19,8 +18,8 @@ import java.awt.event.KeyEvent;
  */
 public class InsertActionPanel extends RenameActionPanel<InsertAction> {
 
-	private JLabel 		    startPositionLabel;
-	private JSpinner	    startPositionSpinner;
+	private JLabel insertPositionLabel;
+	private JSpinner insertPositionSpinner;
     private JRadioButton    fromBeginningRadioButton;
     private JRadioButton    fromEndRadioButton;
     private ButtonGroup     fromButtonGroup;
@@ -43,8 +42,8 @@ public class InsertActionPanel extends RenameActionPanel<InsertAction> {
         fromButtonGroup         = new ButtonGroup();
         fromButtonGroup.add(fromBeginningRadioButton);
         fromButtonGroup.add(fromEndRadioButton);
-        startPositionLabel		= new JLabel("Start position: ");
-        startPositionSpinner	= new JSpinner(new SpinnerNumberModel(0, 0, 999, 1));
+        insertPositionLabel = new JLabel("Start position: ");
+        insertPositionSpinner = new JSpinner(new SpinnerNumberModel(0, 0, 999, 1));
         insertionLabel			= new JLabel("Text to insert: ");
         insertionText			= new JTextField();
     }
@@ -55,9 +54,9 @@ public class InsertActionPanel extends RenameActionPanel<InsertAction> {
                 new GBC(0,0).setInsets(5).setAnchor(GBC.LINE_END));
         this.add(fromEndRadioButton,
                 new GBC(1,0).setInsets(5).setAnchor(GBC.LINE_START));
-        this.add(startPositionLabel,
+        this.add(insertPositionLabel,
                 new GBC(0,1).setWeight(0, 0).setAnchor(GBC.LINE_END));
-        this.add(startPositionSpinner,
+        this.add(insertPositionSpinner,
                 new GBC(1,1).setWeight(1, 0).setAnchor(GBC.LINE_START));
 
         this.add(insertionLabel,
@@ -67,7 +66,7 @@ public class InsertActionPanel extends RenameActionPanel<InsertAction> {
     }
 
     protected void layoutComponents() {
-        startPositionLabel.setPreferredSize(new Dimension(100,25));
+        insertPositionLabel.setPreferredSize(new Dimension(100, 25));
         insertionLabel.setPreferredSize(new Dimension(100,25));
     }
 
@@ -78,10 +77,10 @@ public class InsertActionPanel extends RenameActionPanel<InsertAction> {
 
     @Override
     protected void addListeners() {
-        startPositionSpinner.addChangeListener(new ChangeListener() {
+        insertPositionSpinner.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                renameAction.setInsertPosition(Integer.parseInt(startPositionSpinner.getValue().toString()));
+                renameAction.setInsertPosition(Integer.parseInt(insertPositionSpinner.getValue().toString()));
                 changed();
             }
         });
@@ -117,6 +116,12 @@ public class InsertActionPanel extends RenameActionPanel<InsertAction> {
 		return "Insert";
 	}
 
-	
+    @Override
+    public void resetInputFields() {
+        insertPositionSpinner.setValue(renameAction.getInsertPosition());
+        insertionText.setText(renameAction.getText());
+        setRadioButtonSelected(renameAction.isFromBeginning(), fromBeginningRadioButton, fromEndRadioButton);
+    }
+
 
 }
