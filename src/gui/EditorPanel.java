@@ -111,6 +111,9 @@ public class EditorPanel extends JPanel implements RenameActionListener {
                 } catch (ActiveFileException e1) {
                     exceptionListener.notifyExceptionOccurred(e1);
                 }
+                if(plannedRenameActions.getModel().getSize() != 0) {
+                    plannedRenameActions.setSelectedIndex(0);
+                }
             }
         });
 

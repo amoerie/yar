@@ -55,14 +55,14 @@ public class InsertActionPanel extends RenameActionPanel<InsertAction> {
         this.add(fromEndRadioButton,
                 new GBC(1,0).setInsets(5).setAnchor(GBC.LINE_START));
         this.add(insertPositionLabel,
-                new GBC(0,1).setWeight(0, 0).setAnchor(GBC.LINE_END));
+                new GBC(0,1).setWeight(0, 0).setAnchor(GBC.LINE_END).setInsets(5));
         this.add(insertPositionSpinner,
-                new GBC(1,1).setWeight(1, 0).setAnchor(GBC.LINE_START));
+                new GBC(1,1).setWeight(1, 0).setAnchor(GBC.LINE_START).setInsets(5));
 
         this.add(insertionLabel,
-                new GBC(0,2).setWeight(0, 0).setAnchor(GBC.LINE_END));
+                new GBC(0,2).setWeight(0, 0).setAnchor(GBC.LINE_END).setInsets(5));
         this.add(insertionText,
-                new GBC(1,2).setWeight(1, 0).setAnchor(GBC.LINE_START).setFill(GBC.HORIZONTAL));
+                new GBC(1,2).setWeight(1, 0).setAnchor(GBC.LINE_START).setFill(GBC.HORIZONTAL).setInsets(5));
     }
 
     protected void layoutComponents() {
