@@ -165,7 +165,11 @@ pip-log.txt
 #############
 ## IntelliJ
 #############
-classes
 .idea
+.idea/
+out/
+*.ipr
+*.iws
 *.iml
+classes
 
