@@ -2,8 +2,7 @@ import java.awt.Dimension;
 
 import gui.YarFrame;
 
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 
 
 public class StartYar {
@@ -12,6 +11,11 @@ public class StartYar {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+        try {
+            UIManager.setLookAndFeel("com.seaglasslookandfeel.SeaGlassLookAndFeel");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
