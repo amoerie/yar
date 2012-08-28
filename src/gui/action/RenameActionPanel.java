@@ -1,9 +1,6 @@
 package gui.action;
 
-import domain.ActiveFileException;
-import domain.RenameModel;
 import domain.action.RenameAction;
-import gui.listener.ExceptionListener;
 import gui.listener.RenameActionListener;
 
 import javax.swing.*;

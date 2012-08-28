@@ -1,12 +1,11 @@
 package domain;
 
+import domain.action.RenameAction;
+
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
-
-import javax.swing.*;
-
-import domain.action.RenameAction;
 
 /**
  * @author moerie

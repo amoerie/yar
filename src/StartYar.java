@@ -1,8 +1,7 @@
-import java.awt.Dimension;
-
 import gui.YarFrame;
 
 import javax.swing.*;
+import java.awt.*;
 
 
 public class StartYar {

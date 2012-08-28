@@ -1,8 +1,6 @@
 package gui.action;
 
-import domain.RenameModel;
 import domain.action.MoveAction;
-import gui.EditorPanel;
 import gui.listener.RenameActionListener;
 import util.GBC;
 

@@ -1,25 +1,21 @@
 package gui;
 
 import domain.ActiveFileException;
+import domain.RenameModel;
 import domain.action.RenameAction;
 import gui.action.*;
+import gui.listener.ExceptionListener;
+import gui.listener.RenameActionListener;
+import util.GBC;
 
+import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-
-import com.sun.media.sound.ModelAbstractChannelMixer;
-
-import domain.RenameModel;
-import gui.listener.ExceptionListener;
-import gui.listener.RenameActionListener;
-import util.GBC;
 
 /**
  * @author moerie

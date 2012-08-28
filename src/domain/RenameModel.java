@@ -1,12 +1,10 @@
 package domain;
 
+import domain.action.RenameAction;
+
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
-import java.util.Observable;
-
-import domain.action.RenameAction;
 
 /**
  * @author moerie

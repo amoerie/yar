@@ -1,17 +1,14 @@
 package gui;
 
+import domain.ActiveFileException;
+import domain.RenameModel;
+import gui.listener.ExceptionListener;
+import util.GBC;
+
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.*;
-
-import domain.ActiveFileException;
-import domain.RenameModel;
-
-import domain.action.RenameAction;
-import gui.listener.ExceptionListener;
-import util.GBC;
 
 /**
  * @author moerie

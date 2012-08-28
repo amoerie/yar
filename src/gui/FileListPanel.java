@@ -1,18 +1,12 @@
 package gui;
 
-import java.awt.GridBagLayout;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Observable;
-import java.util.Observer;
-
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-
+import domain.RenameModel;
 import util.FileDrop;
 import util.GBC;
-import domain.*;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
 
 /**
  * @author moerie
