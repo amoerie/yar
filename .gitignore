@@ -165,6 +165,7 @@ pip-log.txt
 #############
 ## IntelliJ
 #############
+.idea
 out/
 *.ipr
 *.iws
