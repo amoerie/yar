@@ -44,14 +44,14 @@ public class ActiveFile {
 	}
 	
 	public void rename(List<RenameAction> renameActions) throws ActiveFileException {
-		tryRename(renameActions);
-		Path currentPath = file.toPath();
-		Path newPath = getNewPath(currentPath, newFileName, extension);
         try {
+            tryRename(renameActions);
+            Path currentPath = file.toPath();
+            Path newPath = getNewPath(currentPath, newFileName, extension);
 			Files.move(currentPath, newPath);
 			loadFile(newPath.toFile());
-		} catch (IOException e) {
-			throw new ActiveFileException("Failed to rename " + currentPath.toString() + " to " + newPath.toString(), e);
+		} catch (Exception e) {
+			throw new ActiveFileException("Failed to rename " + getOldFileName() + " to " + getNewFileName(), e);
 		}
 	}
 	
