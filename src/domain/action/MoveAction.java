@@ -40,7 +40,7 @@ public class MoveAction extends RenameAction{
     }
 
     @Override
-    public String execute(String fileName) throws RenameException {
+    public String execute(String fileName) {
         /*
         Step 1: Extract the part of the filename that needs to be moved.
          */

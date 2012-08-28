@@ -15,7 +15,7 @@ public class InsertAction extends RenameAction {
 	}
 
 	@Override
-	public String execute(String fileName) throws RenameException {
+	public String execute(String fileName) {
         int length = fileName.length();
         int safeInsertPosition = insertPosition;
 		if(safeInsertPosition > length)

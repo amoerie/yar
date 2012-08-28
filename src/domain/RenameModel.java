@@ -14,14 +14,12 @@ import domain.action.RenameAction;
 public class RenameModel  {
 	private List<ActiveFile> 		activeFiles;
     private RenameAction            pendingRenameAction;
-	private List<Exception>			errors; 
 	
 	private ActiveFileTableModel	activeFileTableModel;
 	private RenameActionListModel	renameActionListModel;
 	
 	public RenameModel() {
 		activeFiles 			= new ArrayList<>();
-		errors 					= new ArrayList<>();
 		
 		activeFileTableModel 	= new ActiveFileTableModel(activeFiles);
 		renameActionListModel 	= new RenameActionListModel();
@@ -74,13 +72,5 @@ public class RenameModel  {
 
     public void setPendingRenameAction(RenameAction pendingRenameAction) {
         this.pendingRenameAction = pendingRenameAction;
-    }
-
-    public RenameAction getPendingRenameAction() {
-        return pendingRenameAction;
-    }
-
-    public List<RenameAction> getRenameActions() {
-        return renameActionListModel.getRenameActions();
     }
 }

@@ -35,9 +35,9 @@ public class InsertActionPanel extends RenameActionPanel<InsertAction> {
 
 
     protected void createComponents() {
-        fromBeginningRadioButton= new JRadioButton("from beginning", true);
+        fromBeginningRadioButton= new JRadioButton("From beginning", true);
         fromBeginningRadioButton.setActionCommand(BEGIN);
-        fromEndRadioButton      = new JRadioButton("from end", false);
+        fromEndRadioButton      = new JRadioButton("From end", false);
         fromEndRadioButton.setActionCommand(END);
         fromButtonGroup         = new ButtonGroup();
         fromButtonGroup.add(fromBeginningRadioButton);

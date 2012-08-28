@@ -7,7 +7,6 @@ import java.nio.file.Path;
 import java.util.List;
 
 import domain.action.RenameAction;
-import domain.action.RenameException;
 
 
 /**
@@ -40,12 +39,7 @@ public class ActiveFile {
 	public void tryRename(List<RenameAction> renameActions) throws ActiveFileException {
 		newFileName = new String(oldFileName);
 		for(RenameAction renameAction: renameActions) {
-			try {
 				newFileName = renameAction.execute(newFileName);
-			} catch (RenameException e) {
-				throw new ActiveFileException("Rename action failed.\n\nFilename before action: \t" + newFileName +
-						".\nAttempted rename action: \t" + renameAction.toString(), e);
-			}
 		}
 	}
 	
